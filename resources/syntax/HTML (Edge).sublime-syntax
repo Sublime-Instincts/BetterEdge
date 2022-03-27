@@ -1,0 +1,19 @@
+%YAML 1.2
+---
+file_extensions:
+  - edge
+scope: text.edge
+
+contexts:
+
+  else_pop:
+    - match: (?=\S)
+      pop: 1
+
+  immediately_pop:
+    - match: ""
+      pop: 1
+
+  main:
+    - match: "Test"
+      scope: scy
