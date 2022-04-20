@@ -1,8 +1,13 @@
 %YAML 1.2
 ---
+name: HTML (Edge)
+scope: text.html.edge
+version: 2
+
+extends: Packages/HTML/HTML.sublime-syntax
+
 file_extensions:
   - edge
-scope: text.edge
 
 contexts:
 
@@ -14,6 +19,44 @@ contexts:
     - match: ""
       pop: 1
 
-  main:
-    - match: "Test"
-      scope: scy
+  prototype:
+    - meta_prepend: true
+    - include: edge_embedded
+
+  tag-attribute-value-content:
+    - meta_prepend: true
+    - include: edge_embedded_in_string
+
+  strings-common-content:
+    - meta_prepend: true
+    - include: edge_embedded_in_string
+
+  edge_embedded:
+    - include: edge_expression
+
+  edge_embedded_in_string:
+    - include: edge_expression_embedded_in_string
+
+  edge_expression:
+    - match: \{{2,3}
+      scope: punctuation.section.expression.begin.edge
+      push: edge_expression_body
+
+  edge_expression_body:
+    - meta_scope: meta.expression.edge
+    - match: \}{2,3}
+      scope: punctuation.section.expression.end.edge
+      pop: 1
+    - include: JavaScript.sublime-syntax#expression
+
+  edge_expression_embedded_in_string:
+    - match: \{{2,3}
+      scope: punctuation.section.expression.begin.edge
+      push: edge_expression_embedded_in_string_body
+
+  edge_expression_embedded_in_string_body:
+    - clear_scopes: 1
+    - meta_scope: meta.expression.edge
+    - match: \}{2,3}
+      scope: punctuation.section.expression.end.edge
+      pop: 1
