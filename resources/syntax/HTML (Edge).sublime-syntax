@@ -47,6 +47,13 @@ contexts:
     - match: \}{2,3}
       scope: punctuation.section.expression.end.edge
       pop: 1
+    - include: javascript_expression_start
+
+  javascript_expression_start:
+    - match: (?=\S)
+      push: javascript_expression
+
+  javascript_expression:
     - include: JavaScript.sublime-syntax#expression
 
   edge_expression_embedded_in_string:
