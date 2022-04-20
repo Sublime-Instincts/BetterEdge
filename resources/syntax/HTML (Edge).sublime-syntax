@@ -21,7 +21,19 @@ contexts:
 
   prototype:
     - meta_prepend: true
+    - include: comment
     - include: edge_embedded
+
+  comment:
+    - match: \{{2}\-{2}
+      scope: punctuation.definition.comment.begin.edge
+      push: comment_body
+
+  comment_body:
+    - meta_scope: comment.block.edge
+    - match: \-{2}\}{2}
+      scope: punctuation.definition.comment.end.edge
+      pop: 1
 
   tag-attribute-value-content:
     - meta_prepend: true
