@@ -9,6 +9,17 @@ extends: Packages/HTML/HTML.sublime-syntax
 file_extensions:
   - edge
 
+variables:
+  builtin_edge_block_tags: |-
+    (?x:
+      \b(if|elseif|else|unless|end|component|each|slot)\b
+    )
+
+  builtin_edge_inline_tags: |-
+    (?x:
+      \b(include(If)?|layout|set|section|inject|debugger|super)\b
+    )
+
 contexts:
 
   else_pop:
@@ -45,6 +56,7 @@ contexts:
 
   edge_embedded:
     - include: edge_expression
+    - include: edge_tag
 
   edge_embedded_in_string:
     - include: edge_expression_embedded_in_string
@@ -79,3 +91,27 @@ contexts:
     - match: \}{2,3}
       scope: punctuation.section.expression.end.edge
       pop: 1
+
+  edge_tag:
+    - match: (\@(?:\!)?)({{builtin_edge_block_tags}}|{{builtin_edge_inline_tags}})
+      captures:
+        1: punctuation.definition.tag.edge
+        2: keyword.other.tag.edge
+      push: possible_edge_tag_section_begin
+
+  possible_edge_tag_section_begin:
+    - match: (?=\()
+      set: edge_tag_section_begin
+    - include: immediately_pop
+
+  edge_tag_section_begin:
+    - match: \(
+      scope: punctuation.section.parens.begin.edge
+      set: edge_tag_section_end
+
+  edge_tag_section_end:
+    - meta_scope: meta.parens.edge
+    - match: \)
+      scope: punctuation.section.parens.end.edge
+      pop: 1
+    - include: javascript_expression_start
