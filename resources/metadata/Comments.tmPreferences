@@ -5,7 +5,7 @@
     <key>name</key>
     <string>Comments</string>
     <key>scope</key>
-    <string>text.edge</string>
+    <string>text.html.edge</string>
     <key>settings</key>
     <dict>
         <key>shellVariables</key>
@@ -14,7 +14,13 @@
                 <key>name</key>
                 <string>TM_COMMENT_START</string>
                 <key>value</key>
-                <string>## </string>
+                <string>{{-- </string>
+            </dict>
+            <dict>
+                <key>name</key>
+                <string>TM_COMMENT_END</string>
+                <key>value</key>
+                <string> --}}</string>
             </dict>
         </array>
     </dict>
