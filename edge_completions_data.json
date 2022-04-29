@@ -1,0 +1,29 @@
+{
+    "camelCase": {
+        "description": "Converts a string to its <code>camelCase</code> version.",
+        "annotation": "Global Helper",
+        "arguments": [
+            {
+                "type": "string",
+                "description": "The string to camel case."
+            }
+        ],
+        "code_sample": "{{ camelCase('hello-world') }}"
+    },
+    "snakeCase": {
+        "description": "Converts a string to its <code>snake_case</code> version.",
+        "annotation": "Global Helper",
+        "arguments": [
+            {
+                "type": "string",
+                "description": "The string to snake case."
+            }
+        ],
+        "code_sample": "{{ snakeCase('helloWorld') }}"
+    },
+    "csrfToken": {
+        "description": "Returns the value of the CSRF token. The helper is only available when the <code>@adonisjs/shield</code> is installed and configured.",
+        "annotation": "Global Helper",
+        "code_sample": "<input type='hidden' value='{{ csrfToken }}'' name='_csrf'>"
+    }
+}
