@@ -1,0 +1,23 @@
+## SYNTAX TEST "Packages/BetterEdge/resources/syntax/HTML (Edge).sublime-syntax"
+
+    {{ user.username.toUpperCase() }}
+##  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.expression.edge
+##  ^^ punctuation.section.expression.begin.edge
+##     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function-call.method.js
+##     ^^^^ variable.other.readwrite.js
+##         ^ punctuation.accessor.js
+##          ^^^^^^^^ meta.property.object.js
+##                  ^ punctuation.accessor.js
+##                   ^^^^^^^^^^^ variable.function.js
+##                              ^^ meta.group.js
+##                              ^ punctuation.section.group.begin.js
+##                               ^ punctuation.section.group.end.js
+##                                 ^^ punctuation.section.expression.end.edge
+
+    {{{ "<script> alert(`foo`) </script>" }}}
+##  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.expression.edge
+##  ^^^ punctuation.section.expression.begin.edge
+##      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.string.js string.quoted.double.js
+##      ^ punctuation.definition.string.begin.js
+##                                      ^ punctuation.definition.string.end.js
+##                                        ^^^ punctuation.section.expression.end.edge
