@@ -1,0 +1,183 @@
+## SYNTAX TEST "Packages/BetterEdge/resources/syntax/HTML (Edge).sublime-syntax"
+
+    @if()
+##  ^ punctuation.definition.tag.edge
+##   ^^ keyword.other.tag.edge
+##     ^^ meta.group.edge
+##     ^ punctuation.section.group.begin.edge
+##      ^ punctuation.section.group.end.edge
+
+    @elseif()
+##  ^ punctuation.definition.tag.edge
+##   ^^^^^^ keyword.other.tag.edge
+##         ^^ meta.group.edge
+##         ^ punctuation.section.group.begin.edge
+##          ^ punctuation.section.group.end.edge
+
+    @else
+##  ^ punctuation.definition.tag.edge
+##   ^^^^ keyword.other.tag.edge
+
+    @end
+##  ^ punctuation.definition.tag.edge
+##   ^^^ keyword.other.tag.edge
+
+    @unless()
+##  ^ punctuation.definition.tag.edge
+##   ^^^^^^ keyword.other.tag.edge
+##         ^^ meta.group.edge
+##         ^ punctuation.section.group.begin.edge
+##          ^ punctuation.section.group.end.edge
+
+    @end
+##  ^ punctuation.definition.tag.edge
+##   ^^^ keyword.other.tag.edge
+
+    @each()
+##  ^ punctuation.definition.tag.edge
+##   ^^^^ keyword.other.tag.edge
+##       ^^ meta.group.edge
+##       ^ punctuation.section.group.begin.edge
+##        ^ punctuation.section.group.end.edge
+
+    @end
+##  ^ punctuation.definition.tag.edge
+##   ^^^ keyword.other.tag.edge
+
+    @include("partials/header")
+##  ^ punctuation.definition.tag.edge
+##   ^^^^^^^ keyword.other.tag.edge
+##          ^^^^^^^^^^^^^^^^^^^ meta.group.edge
+##          ^ punctuation.section.group.begin.edge
+##           ^^^^^^^^^^^^^^^^^ meta.string.js string.quoted.double.js
+##           ^ punctuation.definition.string.begin.js
+##                           ^ punctuation.definition.string.end.js
+##                            ^ punctuation.section.group.end.edge
+
+    @includeIf(post.comments, "partials/comments")
+##  ^ punctuation.definition.tag.edge
+##   ^^^^^^^^^ keyword.other.tag.edge
+##            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.group.edge
+##            ^ punctuation.section.group.begin.edge
+##             ^^^^ variable.other.readwrite.js
+##                 ^ punctuation.accessor.js
+##                  ^^^^^^^^ meta.property.object.js
+##                          ^ keyword.operator.comma.js
+##                            ^^^^^^^^^^^^^^^^^^^ meta.string.js string.quoted.double.js
+##                            ^ punctuation.definition.string.begin.js
+##                                              ^ punctuation.definition.string.end.js
+##                                               ^ punctuation.section.group.end.edge
+
+    @section("body")
+##  ^ punctuation.definition.tag.edge
+##   ^^^^^^^ keyword.other.tag.edge
+##          ^^^^^^^^ meta.group.edge
+##          ^ punctuation.section.group.begin.edge
+##           ^^^^^^ meta.string.js string.quoted.double.js
+##           ^ punctuation.definition.string.begin.js
+##                ^ punctuation.definition.string.end.js
+##                 ^ punctuation.section.group.end.edge
+
+    @end
+##  ^ punctuation.definition.tag.edge
+##   ^^^ keyword.other.tag.edge
+
+    @set("title", "Home page")
+##  ^ punctuation.definition.tag.edge
+##   ^^^ keyword.other.tag.edge
+##      ^^^^^^^^^^^^^^^^^^^^^^ meta.group.edge
+##      ^ punctuation.section.group.begin.edge
+##       ^^^^^^^ meta.string.js string.quoted.double.js
+##       ^ punctuation.definition.string.begin.js
+##             ^ punctuation.definition.string.end.js
+##              ^ keyword.operator.comma.js
+##                ^^^^^^^^^^^ meta.string.js string.quoted.double.js
+##                ^ punctuation.definition.string.begin.js
+##                          ^ punctuation.definition.string.end.js
+##                           ^ punctuation.section.group.end.edge
+
+    @layout("layouts/main")
+##  ^ punctuation.definition.tag.edge
+##   ^^^^^^ keyword.other.tag.edge
+##         ^^^^^^^^^^^^^^^^ meta.group.edge
+##         ^ punctuation.section.group.begin.edge
+##          ^^^^^^^^^^^^^^ meta.string.js string.quoted.double.js
+##          ^ punctuation.definition.string.begin.js
+##                       ^ punctuation.definition.string.end.js
+##                        ^ punctuation.section.group.end.edge
+
+    @!section("body")
+##  ^^ punctuation.definition.tag.edge
+##    ^^^^^^^ keyword.other.tag.edge
+##           ^^^^^^^^ meta.group.edge
+##           ^ punctuation.section.group.begin.edge
+##            ^^^^^^ meta.string.js string.quoted.double.js
+##            ^ punctuation.definition.string.begin.js
+##                 ^ punctuation.definition.string.end.js
+##                  ^ punctuation.section.group.end.edge
+
+    @!component("button", { text: "login", type: "submit"})
+##  ^^ punctuation.definition.tag.edge
+##    ^^^^^^^^^ keyword.other.tag.edge
+##             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.group.edge
+##             ^ punctuation.section.group.begin.edge
+##              ^^^^^^^^ meta.string.js string.quoted.double.js
+##              ^ punctuation.definition.string.begin.js
+##                     ^ punctuation.definition.string.end.js
+##                      ^ keyword.operator.comma.js
+##                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.js
+##                        ^ punctuation.section.mapping.begin.js
+##                          ^^^^ meta.mapping.key.js
+##                              ^ punctuation.separator.key-value.js
+##                                ^^^^^^^ meta.string.js string.quoted.double.js
+##                                ^ punctuation.definition.string.begin.js
+##                                      ^ punctuation.definition.string.end.js
+##                                       ^ punctuation.separator.comma.js
+##                                         ^^^^ meta.mapping.key.js
+##                                             ^ punctuation.separator.key-value.js
+##                                               ^^^^^^^^ meta.string.js string.quoted.double.js
+##                                               ^ punctuation.definition.string.begin.js
+##                                                      ^ punctuation.definition.string.end.js
+##                                                       ^ punctuation.section.mapping.end.js
+##                                                        ^ punctuation.section.group.end.edge
+
+    @component("button")
+##  ^ punctuation.definition.tag.edge
+##   ^^^^^^^^^ keyword.other.tag.edge
+##            ^^^^^^^^^^ meta.group.edge
+##            ^ punctuation.section.group.begin.edge
+##             ^^^^^^^^ meta.string.js string.quoted.double.js
+##             ^ punctuation.definition.string.begin.js
+##                    ^ punctuation.definition.string.end.js
+##                     ^ punctuation.section.group.end.edge
+
+    @end
+##  ^ punctuation.definition.tag.edge
+##   ^^^ keyword.other.tag.edge
+
+    @slot("main", scope)
+##  ^ punctuation.definition.tag.edge
+##   ^^^^ keyword.other.tag.edge
+##       ^^^^^^^^^^^^^^^ meta.group.edge
+##       ^ punctuation.section.group.begin.edge
+##        ^^^^^^ meta.string.js string.quoted.double.js
+##        ^ punctuation.definition.string.begin.js
+##             ^ punctuation.definition.string.end.js
+##              ^ keyword.operator.comma.js
+##                ^^^^^ variable.other.readwrite.js
+##                     ^ punctuation.section.group.end.edge
+
+    @end
+##  ^ punctuation.definition.tag.edge
+##   ^^^ keyword.other.tag.edge
+
+    @inject({ counter })
+##  ^ punctuation.definition.tag.edge
+##   ^^^^^^ keyword.other.tag.edge
+##         ^^^^^^^^^^^^^ meta.group.edge
+##         ^ punctuation.section.group.begin.edge
+##          ^^^^^^^^^^^ meta.mapping.js
+##          ^ punctuation.section.mapping.begin.js
+##            ^^^^^^^ variable.other.readwrite.js
+##                    ^ punctuation.section.mapping.end.js
+##                     ^ punctuation.section.group.end.edge

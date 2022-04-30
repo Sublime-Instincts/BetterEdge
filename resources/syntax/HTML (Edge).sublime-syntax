@@ -106,12 +106,12 @@ contexts:
 
   edge_tag_section_begin:
     - match: \(
-      scope: punctuation.section.parens.begin.edge
+      scope: punctuation.section.group.begin.edge
       set: edge_tag_section_end
 
   edge_tag_section_end:
-    - meta_scope: meta.parens.edge
+    - meta_scope: meta.group.edge
     - match: \)
-      scope: punctuation.section.parens.end.edge
+      scope: punctuation.section.group.end.edge
       pop: 1
     - include: javascript_expression_start
