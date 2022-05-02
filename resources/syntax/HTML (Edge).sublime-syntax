@@ -7,18 +7,9 @@ version: 2
 extends: Packages/HTML/HTML.sublime-syntax
 
 file_extensions:
+  - htm.edge
+  - html.edge
   - edge
-
-variables:
-  builtin_edge_block_tags: |-
-    (?x:
-      \b(if|elseif|else|unless|end|component|each|slot)\b
-    )
-
-  builtin_edge_inline_tags: |-
-    (?x:
-      \b(include(If)?|layout|set|section|inject|debugger|super)\b
-    )
 
 contexts:
 
@@ -30,21 +21,17 @@ contexts:
     - match: ""
       pop: 1
 
+  edge_embedded:
+    - include: Edge.sublime-syntax#edge_expression
+    - include: Edge.sublime-syntax#edge_tag
+
+  edge_embedded_in_string:
+    - include: Edge.sublime-syntax#edge_expression_embedded_in_string
+
   prototype:
     - meta_prepend: true
-    - include: edge_comment
+    - include: Edge.sublime-syntax#edge_comment
     - include: edge_embedded
-
-  edge_comment:
-    - match: \{{2}\-{2}
-      scope: punctuation.definition.comment.begin.edge
-      push: edge_comment_body
-
-  edge_comment_body:
-    - meta_scope: comment.block.edge
-    - match: \-{2}\}{2}
-      scope: punctuation.definition.comment.end.edge
-      pop: 1
 
   tag-attribute-value-content:
     - meta_prepend: true
@@ -53,92 +40,3 @@ contexts:
   strings-common-content:
     - meta_prepend: true
     - include: edge_embedded_in_string
-
-  edge_embedded:
-    - include: edge_expression
-    - include: edge_tag
-
-  edge_embedded_in_string:
-    - include: edge_expression_embedded_in_string
-
-  edge_expression:
-    - match: (\@)(\{{2,3})
-      captures:
-        1: punctuation.section.expression.edge
-        2: punctuation.section.expression.begin.edge
-      push: escape_edge_expression
-    - match: \{{2,3}
-      scope: punctuation.section.expression.begin.edge
-      push: edge_expression_body
-
-  edge_expression_body:
-    - meta_scope: meta.expression.edge
-    - match: \}{2,3}
-      scope: punctuation.section.expression.end.edge
-      pop: 1
-    - include: javascript_expression_start
-
-  escape_edge_expression:
-    - meta_scope: meta.expression.edge
-    - match: \}{2,3}
-      scope: punctuation.section.expression.end.edge
-      pop: 1
-
-  javascript_expression_start:
-    - match: (?=\S)
-      push: javascript_expression
-
-  javascript_expression:
-    - include: JavaScript.sublime-syntax#expression
-
-  edge_expression_embedded_in_string:
-    - match: \{{2,3}
-      scope: punctuation.section.expression.begin.edge
-      push: edge_expression_embedded_in_string_body
-
-  edge_expression_embedded_in_string_body:
-    - clear_scopes: 1
-    - meta_scope: meta.expression.edge
-    - match: \}{2,3}
-      scope: punctuation.section.expression.end.edge
-      pop: 1
-
-  edge_tag:
-    - match: (\@(?:\!)?)({{builtin_edge_block_tags}}|{{builtin_edge_inline_tags}})
-      captures:
-        1: punctuation.definition.tag.edge
-        2: keyword.other.tag.edge
-      push: possible_edge_tag_section_begin
-    - match: (\@(?:\!)?)(\w+)
-      captures:
-        1: punctuation.definition.tag.edge
-        2: variable.other.tag.edge
-      push: possible_tag_file_path
-
-  possible_tag_file_path:
-    - match: (\.)(\w+)
-      captures:
-        1: punctuation.accessor.dot.edge
-        2: variable.other.tag.edge
-    - match: (?=\.\w+)
-      set: possible_tag_file_path
-    - match: (?=\()
-      push: edge_tag_section_begin
-    - include: else_pop
-
-  possible_edge_tag_section_begin:
-    - match: (?=\()
-      set: edge_tag_section_begin
-    - include: immediately_pop
-
-  edge_tag_section_begin:
-    - match: \(
-      scope: punctuation.section.group.begin.edge
-      set: edge_tag_section_end
-
-  edge_tag_section_end:
-    - meta_scope: meta.group.edge
-    - match: \)
-      scope: punctuation.section.group.end.edge
-      pop: 1
-    - include: javascript_expression_start
