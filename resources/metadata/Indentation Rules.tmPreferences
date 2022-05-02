@@ -2,9 +2,23 @@
 <plist version="1.0">
 <dict>
     <key>scope</key>
-    <string>text.edge</string>
+    <string>text.html.edge</string>
     <key>settings</key>
     <dict>
+        <key>decreaseIndentPattern</key>
+        <string>(?x)
+                ^\s*\@\s*(end|else)\b$
+            |   ^\s*\@\s*(elseif)\(.*\)\s*$
+        </string>
+        <key>increaseIndentPattern</key>
+        <string>(?x)
+            ^\s*\@\s*\b
+            (
+                if|elseif|else|unless|component|each|slot|section
+            )
+            \b(\(.*\))?\s*$</string>
+        <key>disableIndentNextLinePattern</key>
+        <string></string>
     </dict>
 </dict>
 </plist>

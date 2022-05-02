@@ -1,0 +1,31 @@
+## SYNTAX TEST reindent "Packages/BetterEdge/resources/syntax/HTML (Edge).sublime-syntax"
+
+@if(user.fullName)
+    <p> Hello {{ user.fullName }}! </p>
+@elseif(user.firstName)
+    <p> Hello {{ user.firstName }}! </p>
+@else
+    <p> Hello Guest! </p>
+@end
+
+@unless(account.isActive)
+    <p>Please verify the email address to activate your account.</p>
+@end
+
+@each((user, index) in users)
+    <li> {{ index + 1 }} {{ user.username }} </li>
+@end
+
+@section("scripts")
+    <script src="./vendor.js"></script>
+    <script src="./app.js"></script>
+@end
+
+@component("button", { type: "submit" })
+    <i class="fa-icon-lock" />
+    <span>Login</span>
+@end
+
+@slot("trigger")
+    <a href="#"> Show modal </a>
+@end
