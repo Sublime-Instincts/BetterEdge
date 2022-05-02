@@ -210,3 +210,31 @@
 ##                    ^ punctuation.definition.string.begin.js
 ##                        ^ punctuation.definition.string.end.js
 ##                         ^ punctuation.section.group.end.edge
+
+    @can("PostPolicy.edit")
+##  ^ punctuation.definition.tag.edge
+##   ^^^ keyword.other.tag.edge
+##      ^^^^^^^^^^^^^^^^^^^ meta.group.edge
+##      ^ punctuation.section.group.begin.edge
+##       ^^^^^^^^^^^^^^^^^ meta.string.js string.quoted.double.js
+##       ^ punctuation.definition.string.begin.js
+##                       ^ punctuation.definition.string.end.js
+##                        ^ punctuation.section.group.end.edge
+
+    @end
+##  ^ punctuation.definition.tag.edge
+##   ^^^ keyword.other.tag.edge
+
+    @cannot("PostPolicy.edit")
+##  ^ punctuation.definition.tag.edge
+##   ^^^^^^ keyword.other.tag.edge
+##         ^^^^^^^^^^^^^^^^^^^ meta.group.edge
+##         ^ punctuation.section.group.begin.edge
+##          ^^^^^^^^^^^^^^^^^ meta.string.js string.quoted.double.js
+##          ^ punctuation.definition.string.begin.js
+##                          ^ punctuation.definition.string.end.js
+##                           ^ punctuation.section.group.end.edge
+
+    @end
+##  ^ punctuation.definition.tag.edge
+##   ^^^ keyword.other.tag.edge

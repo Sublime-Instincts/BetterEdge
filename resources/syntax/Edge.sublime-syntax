@@ -8,7 +8,7 @@ hidden: true
 variables:
   builtin_edge_block_tags: |-
     (?x:
-      \b(if|elseif|else|unless|end|component|each|slot)\b
+      \b(if|elseif|else|unless|end|component|each|slot|can|cannot)\b
     )
 
   builtin_edge_inline_tags: |-

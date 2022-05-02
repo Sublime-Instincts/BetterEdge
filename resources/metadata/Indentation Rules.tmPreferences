@@ -14,7 +14,7 @@
         <string>(?x)
             ^\s*\@\s*\b
             (
-                if|elseif|else|unless|component|each|slot|section
+                if|elseif|else|unless|component|each|slot|section|can|cannot
             )
             \b(\(.*\))?\s*$</string>
         <key>disableIndentNextLinePattern</key>
