@@ -109,6 +109,22 @@ contexts:
         1: punctuation.definition.tag.edge
         2: keyword.other.tag.edge
       push: possible_edge_tag_section_begin
+    - match: (\@(?:\!)?)(\w+)
+      captures:
+        1: punctuation.definition.tag.edge
+        2: variable.other.tag.edge
+      push: possible_tag_file_path
+
+  possible_tag_file_path:
+    - match: (\.)(\w+)
+      captures:
+        1: punctuation.accessor.dot.edge
+        2: variable.other.tag.edge
+    - match: (?=\.\w+)
+      set: possible_tag_file_path
+    - match: (?=\()
+      push: edge_tag_section_begin
+    - include: else_pop
 
   possible_edge_tag_section_begin:
     - match: (?=\()
