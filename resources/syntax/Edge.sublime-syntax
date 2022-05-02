@@ -13,7 +13,9 @@ variables:
 
   builtin_edge_inline_tags: |-
     (?x:
-      \b(include(If)?|layout|set|section|inject|debugger|super)\b
+      \b(include(If)?|layout|set|section|inject|debugger|super
+        |entryPoint(Scripts|Styles))
+      \b
     )
 
 contexts:
