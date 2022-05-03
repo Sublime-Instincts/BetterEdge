@@ -13,14 +13,6 @@ file_extensions:
 
 contexts:
 
-  else_pop:
-    - match: (?=\S)
-      pop: 1
-
-  immediately_pop:
-    - match: ""
-      pop: 1
-
   edge_embedded:
     - include: Edge.sublime-syntax#edge_expression
     - include: Edge.sublime-syntax#edge_tag
