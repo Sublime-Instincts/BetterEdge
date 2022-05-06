@@ -43,6 +43,13 @@ contexts:
     - include: edge_expression
     - include: edge_tag
 
+  edge_embedded:
+    - include: edge_expression
+    - include: edge_tag
+
+  edge_embedded_in_string:
+    - include: edge_expression_embedded_in_string
+
   edge_expression:
     - match: (\@)(\{{2,3})
       captures:
