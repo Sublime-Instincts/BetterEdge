@@ -10,21 +10,22 @@ A Sublime Text package that offers enhanced syntax highlighting, snippets, compl
 - Snippets for common code blocks.
 - Key bindings to make your life easier.
 - Enhanced syntax highlighting for Edge templates.
-- Autocompletions for built in tags, filters, functions, tests & loop variables.
+- Autocompletions for built in tags, global helpers etc.
 
 ## Installation
 
 #### Package Control
-The best way is to install it via [Package Control](https://packagecontrol.io/). Once you have Package Control setup in Sublime Text, open the command palette and search for `Package Control: Install Package`. Search for `BetterEdge` and install it. Package Control will take care for of automatically updating the package for you if there are new releases.
+This package is not available on Package Control. To use it, follow the steps given below.
 
-You can also use `Package Control: Add Repository`. Copy the github url (without the `.git` at the end) and enter it into the input panel that pops up at the bottom when you select `Package Control: Add Repository`. Now use `Package Control: Install Package` and search for `BetterEdge` and install it.
+1. Copy the github url (without the `.git` at the end).
+2. Select `Package Control: Add Repository` and paste the copied github url into the input panel and press <kbd>enter</kbd>.
+3. Now use `Package Control: Install Package` and search for `BetterEdge` and install it.
 
 ## Documentation
 
 ### How to use this package ?
 
-By default, this package supports the following Edge extensions:
-`j2`, `jinja`, `jinja2`, `html.j2`, `html.jinja`, `html.jinja2`, `htm.j2`, `htm.jinja`, `htm.jinja2`.
+By default, this package supports the following Edge extensions: `.edge`, `html.edge`, `htm.edge`.
 
 Since a user can have more than one templating language package installed, this package doesn't support `.html` directly. To get highlighting for `.html` files with Edge code and all the other features this package provides, you can follow any of the two approaches given below
 
@@ -43,21 +44,7 @@ Since a user can have more than one templating language package installed, this 
 ### Key bindings
 
 - The key bindings are configured so that pressing <kbd>shift + {</kbd> **twice** will automatically add spaces on both sides for the inner brace expression block & place the cursor in the center, like so `{{ | }}`.
-- |||ly pressing <kbd>shift + %</kbd> within `{}` will add spaces on both sides of the inner `%` like so `{% | %}`
-- You can use <kbd>ctrl + /</kbd> for inserting Edge style line comments (`## This is a line comment`)
-- Similarly, use <kbd>ctrl + shift + /</kbd> for block style comments (`{# This is a block comment #}`)
-
-### Auto completions
-In order to get the auto completions, go to `Preferences: Settings` from the command palette and paste the following in the `Preferences.sublime-settings -- User` (the right hand window)
-
-```json
-"auto_complete_selector": "text.jinja, meta.tag - punctuation.definition.tag.begin, source - comment - string.quoted.double.block - string.quoted.single.block - string.unquoted.heredoc",
-"auto_complete_triggers":
-[
-    {"characters": "<", "selector": "text.html"},
-    {"selector": "text.jinja, text.html.basic"},
-]
-```
+- You can use <kbd>ctrl + /</kbd> for inserting Edge style comments (`{{-- This is a comment --}}`)
 
 If you already have these in your user settings, then just copy the Twig related portions into them.
 
@@ -65,21 +52,6 @@ If you already have these in your user settings, then just copy the Twig related
 
 `BetterEdge` only adds basic snippets for common code blocks. If you want more snippets, then please follow the official documentation on
 [snippets](https://www.sublimetext.com/docs/completions.html#snippets) and create your own.
-
-|  **Tab Trigger**  |           **Edge Code Block**           |
-|-------------------|-------------------------------------------|
-|    ```jwith```    |       ```{% with %}{% endwith %}```       |
-|     ```jraw```    |         ```{% raw %}{% endraw %}```       |
-|    ```jmacro```   |      ```{% macro %}{% endmacro %}```      |
-|   ```jifelse```   |    ```{% if %}{% else %}{% endif %}```    |
-|     ```jif```     |         ```{% if %}{% endif %}```         |
-|     ```jfor```    |        ```{% for %}{% endfor %}```        |
-|   ```jfilter```   |     ```{% filter %}{% endfilter %}```     |
-|   ```jextends```  |            ```{% extends %}```            |
-|     ```jexp```    |                ```{%  %}```               |
-|    ```jcall```    |       ```{% call %}{% endcall %}```       |
-|    ```jblock```   |      ```{% block %}{% endblock %}```      |
-| ```jautoescape``` | ```{% autoescape %}{% endautoescape %}``` |
 
 If you want to ignore the snippets that are provided by default, you can use the `ignored_snippets` setting.
 
@@ -93,7 +65,7 @@ Please follow the issue & feature request templates that have been setup while r
 
 ## Acknowledgements.
 
-The [syntax_test.yml](https://github.com/Sublime-Instincts/BetterTwig/.github/workflows/syntax_test.yml) is taken & used (with some modifications) from the official [Packages](https://github.com/sublimehq/Packages) repository. So full credit goes to them for it.
+The [syntax_test.yml](https://github.com/Sublime-Instincts/BetterEdge/.github/workflows/syntax_test.yml) is taken & used (with some modifications) from the official [Packages](https://github.com/sublimehq/Packages) repository. So full credit goes to them for it.
 
 ## License
 The MIT License (MIT)
